@@ -1,0 +1,22 @@
+name: Landing Page CI
+
+on:
+  pull_request:
+    branches: [ develop, main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check index.html exists
+        run: test -f index.html
+
+      - name: Check style.css exists
+        run: test -f style.css
+
+      - name: Check sections folder exists
+        run: test -d sections
